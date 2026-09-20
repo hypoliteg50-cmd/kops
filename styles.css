@@ -290,6 +290,59 @@ a { color: var(--bleu-vif); }
 }
 
 /* Contact */
+.formulaire {
+  margin-top: 28px;
+  display: grid;
+  gap: 18px;
+}
+
+.formulaire__paire {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.champ {
+  display: grid;
+  gap: 7px;
+}
+
+.champ label {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--bleu-gris-fonce);
+}
+
+.champ input,
+.champ textarea {
+  font: inherit;
+  color: var(--texte);
+  background: var(--blanc);
+  border: 1px solid var(--filet);
+  border-radius: 6px;
+  padding: 12px 14px;
+  width: 100%;
+}
+
+.champ textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.champ input:focus,
+.champ textarea:focus {
+  outline: 2px solid var(--bleu-vif);
+  outline-offset: 1px;
+  border-color: var(--bleu-vif);
+}
+
+.formulaire .bouton-principal {
+  justify-self: start;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
 .contact__grille {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -300,6 +353,7 @@ a { color: var(--bleu-vif); }
   margin: 0;
   display: grid;
   gap: 18px;
+  align-content: start;
 }
 
 .coordonnees dt {
@@ -379,6 +433,7 @@ a { color: var(--bleu-vif); }
 
 @media (max-width: 640px) {
   body { font-size: 16px; }
+  .formulaire__paire { grid-template-columns: 1fr; }
   .entete__interieur { align-items: flex-start; }
   .marque img { height: 40px; }
   .navigation { gap: 6px 16px; }

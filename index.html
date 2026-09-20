@@ -176,7 +176,38 @@
             Échangeons sur vos coûts d'exploitation : nous identifions ensemble
             les leviers de réduction et les gains potentiels.
           </p>
-          <p class="provisoire">[Formulaire de contact à mettre en place]</p>
+
+          <!-- L'attribut action reste à renseigner : il dépend du service
+               d'envoi retenu. Sans lui, le formulaire ne transmet rien. -->
+          <form class="formulaire" method="post" novalidate>
+            <div class="champ">
+              <label for="nom">Nom et prénom</label>
+              <input type="text" id="nom" name="nom" autocomplete="name" required>
+            </div>
+            <div class="champ">
+              <label for="entreprise">Entreprise</label>
+              <input type="text" id="entreprise" name="entreprise" autocomplete="organization">
+            </div>
+            <div class="formulaire__paire">
+              <div class="champ">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+              </div>
+              <div class="champ">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel">
+              </div>
+            </div>
+            <div class="champ">
+              <label for="objet">Objet de la demande</label>
+              <input type="text" id="objet" name="objet">
+            </div>
+            <div class="champ">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button class="bouton-principal" type="submit">Envoyer ma demande</button>
+          </form>
         </div>
         <dl class="coordonnees">
           <div>
@@ -185,7 +216,7 @@
           </div>
           <div>
             <dt>Adresse</dt>
-            <dd class="provisoire">[Adresse à fournir]</dd>
+            <dd>3 Rue de la Pommeraie<br>78310 Coignières<br>France</dd>
           </div>
           <div>
             <dt>Téléphone</dt>
@@ -193,7 +224,7 @@
           </div>
           <div>
             <dt>E-mail</dt>
-            <dd class="provisoire">[Adresse e-mail à fournir]</dd>
+            <dd><a href="mailto:hypoliteg50@gmail.com">hypoliteg50@gmail.com</a></dd>
           </div>
           <div>
             <dt>Horaires</dt>
