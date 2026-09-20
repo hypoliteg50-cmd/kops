@@ -40,9 +40,13 @@ Une seule action principale : demander un diagnostic / un échange avec KOPS afi
 **3 · À propos**
 KOPS combine conseil stratégique, expertise métier, digitalisation et pilotage par la donnée. Approche transverse énergie, maintenance, processus et digital, selon une logique « audit → action → pilotage », pour passer d'optimisations ponctuelles à un pilotage continu.
 
-**4 · Preuves**
-- Disponibles : chiffrage des gains et estimation du ROI ; suivi de performance et ROI ; tableaux de bord personnalisés ; vision multi-sites et multi-périodes ; approche orientée résultats mesurables.
-- À définir : références clients, témoignages, labels, chiffres réalisés.
+**4 · Performance mesurable**
+- Introduction : « Chaque mission KOPS s'appuie sur des indicateurs concrets pour mesurer les gains, suivre les résultats et piloter la performance dans la durée. »
+- Chiffrage des gains et estimation du retour sur investissement (ROI).
+- Suivi de performance et du retour sur investissement.
+- Tableaux de bord personnalisés.
+- Vision multi-sites et multi-périodes.
+- Approche orientée résultats mesurables.
 
 **5 · Contact**
 - Zone d'intervention : Europe & Afrique de l'Ouest.
