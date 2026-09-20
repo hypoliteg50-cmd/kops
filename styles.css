@@ -296,6 +296,15 @@ a { color: var(--bleu-vif); }
   gap: 18px;
 }
 
+/* Piège à robots : invisible pour les visiteurs, rempli par les robots. */
+.piege {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .formulaire__paire {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -433,7 +442,16 @@ a { color: var(--bleu-vif); }
 
 @media (max-width: 640px) {
   body { font-size: 16px; }
-  .formulaire__paire { grid-template-columns: 1fr; }
+  /* Piège à robots : invisible pour les visiteurs, rempli par les robots. */
+.piege {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.formulaire__paire { grid-template-columns: 1fr; }
   .entete__interieur { align-items: flex-start; }
   .marque img { height: 40px; }
   .navigation { gap: 6px 16px; }

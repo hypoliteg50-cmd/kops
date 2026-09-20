@@ -18,9 +18,10 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="KOPS — Réduisez durablement vos coûts d'exploitation (OPEX)">
 <meta property="og:description" content="Conseil en performance opérationnelle et plateforme digitale pour transformer vos OPEX en un actif stratégique pilotable. Europe &amp; Afrique de l'Ouest.">
-<meta property="og:image" content="images/kops-visuel-accueil.png">
-<meta property="og:image:width" content="816">
-<meta property="og:image:height" content="384">
+<meta property="og:image" content="images/kops-partage.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="KOPS — Réduisez durablement vos coûts d'exploitation (OPEX)">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="stylesheet" href="styles.css">
@@ -177,9 +178,16 @@
             les leviers de réduction et les gains potentiels.
           </p>
 
-          <!-- L'attribut action reste à renseigner : il dépend du service
-               d'envoi retenu. Sans lui, le formulaire ne transmet rien. -->
-          <form class="formulaire" method="post" novalidate>
+          <!-- Envoi par Formspree. Remplacer l'identifiant entre crochets par
+               celui du formulaire créé sur formspree.io ; les réponses arrivent
+               sur l'adresse déclarée dans le compte. -->
+          <form class="formulaire" method="post"
+                action="https://formspree.io/f/[identifiant Formspree à renseigner]">
+            <input type="hidden" name="_subject" value="Demande de diagnostic — site KOPS">
+            <p class="piege" aria-hidden="true">
+              <label for="site-web">Ne pas remplir ce champ</label>
+              <input type="text" id="site-web" name="_gotcha" tabindex="-1" autocomplete="off">
+            </p>
             <div class="champ">
               <label for="nom">Nom et prénom</label>
               <input type="text" id="nom" name="nom" autocomplete="name" required>
