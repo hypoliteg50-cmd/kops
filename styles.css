@@ -101,6 +101,16 @@ a { color: var(--bleu-vif); }
   font-size: 1.2rem;
   color: var(--bleu-gris-fonce);
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.marque img {
+  display: block;
+  height: 56px;
+  width: auto;
+  max-width: 100%;
 }
 
 .navigation {
@@ -171,19 +181,13 @@ a { color: var(--bleu-vif); }
   color: var(--texte-attenue);
 }
 
-/* Emplacement réservé à un visuel non fourni. */
-.visuel-reserve {
-  background: var(--bleu-tres-clair);
-  border: 1px dashed var(--filet);
+/* Visuel principal de l'accueil. */
+.accueil__visuel {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 10px;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 24px;
-  color: var(--texte-attenue);
-  font-size: 0.95rem;
+  background: var(--bleu-tres-clair);
 }
 
 /* Cartes */
@@ -370,16 +374,17 @@ a { color: var(--bleu-vif); }
   .grille--2 { grid-template-columns: 1fr; }
   .liste-preuves { grid-template-columns: 1fr; }
   .pied__grille { grid-template-columns: 1fr 1fr; }
+  .marque img { height: 46px; }
 }
 
 @media (max-width: 640px) {
   body { font-size: 16px; }
   .entete__interieur { align-items: flex-start; }
+  .marque img { height: 40px; }
   .navigation { gap: 6px 16px; }
   .navigation a { font-size: 0.9rem; }
   .bouton-principal { display: block; text-align: center; }
   .pied__grille { grid-template-columns: 1fr; }
-  .visuel-reserve { min-height: 200px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
