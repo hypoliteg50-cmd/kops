@@ -1,0 +1,79 @@
+name: Déploiement du site KOPS
+
+# Déclenchement manuel uniquement, pour l'instant.
+# Pour activer le déploiement automatique à chaque mise à jour de la branche
+# principale, retirer les dièses des quatre lignes ci-dessous.
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+
+concurrency:
+  group: deploiement-kops
+  cancel-in-progress: false
+
+jobs:
+  deployer:
+    name: Publier sur o2switch
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Vérifier la syntaxe PHP
+        run: php -l contact.php
+
+      - name: Vérifier que les fichiers du site sont présents
+        run: |
+          set -e
+          for f in index.html styles.css contact.php .htaccess \
+                   mentions-legales.html politique-confidentialite.html \
+                   images/kops-logo.png images/kops-visuel-accueil.png \
+                   images/kops-partage.png images/favicon-32.png \
+                   images/favicon-192.png images/apple-touch-icon.png; do
+            test -f "$f" || { echo "Fichier manquant : $f"; exit 1; }
+          done
+          echo "Les douze fichiers du site sont présents."
+
+      - name: Refuser de publier un contenu resté provisoire
+        run: |
+          set -e
+          if grep -n '\[.*à fournir\]\|\[.*à renseigner\]\|\[identifiant Formspree' \
+               index.html mentions-legales.html politique-confidentialite.html; then
+            echo "Un contenu provisoire subsiste dans une page publique."
+            exit 1
+          fi
+          echo "Aucun contenu provisoire dans les pages publiques."
+
+      - name: Transférer vers o2switch en FTPS explicite
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./
+          server-dir: ./
+          # Aucune remise à zéro du serveur : les fichiers distants inconnus
+          # de ce dépôt sont laissés en place.
+          dangerous-clean-slate: false
+          log-level: standard
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            brief.md
+            CLAUDE.md
+            README.md
+            file_*.png
+            **/.well-known/**
+            **/cgi-bin/**
+            **/.cpanel/**
+            **/.trash/**
+            **/error_log
+            **/php.ini
+            **/.user.ini
