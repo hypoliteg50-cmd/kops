@@ -1,0 +1,53 @@
+# Site KOPS — configuration Apache (o2switch)
+
+Options -Indexes
+
+# --- Adresse canonique : https://kops-performance.fr -------------------------
+# Toutes les variantes convergent vers cette adresse en une seule redirection.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^(.*)$ https://kops-performance.fr/$1 [R=301,L]
+</IfModule>
+
+# --- En-têtes de sécurité ----------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+  # HSTS : à n'activer qu'une fois le site vérifié en HTTPS sur toutes ses
+  # adresses. L'instruction est irréversible pendant sa durée de validité,
+  # les navigateurs refusant ensuite tout accès en HTTP.
+  # Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+# --- Mise en cache -----------------------------------------------------------
+# Les images et icônes changent rarement : cache long.
+# Le HTML et la feuille de style sont revalidés souvent, afin qu'une
+# correction soit visible sans attendre.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                        "access plus 1 hour"
+  ExpiresByType image/png               "access plus 6 months"
+  ExpiresByType image/jpeg              "access plus 6 months"
+  ExpiresByType image/svg+xml           "access plus 6 months"
+  ExpiresByType text/css                "access plus 1 day"
+  ExpiresByType text/html               "access plus 0 seconds"
+</IfModule>
+
+# --- Fichiers de travail non destinés au public ------------------------------
+# brief.md, CLAUDE.md et les fichiers de version ne doivent pas être servis.
+<FilesMatch "\.(md|json|lock|yml|yaml)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteRule ^\.git - [F,L]
+</IfModule>
+
+# --- Page d'accueil ----------------------------------------------------------
+DirectoryIndex index.html index.php

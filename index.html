@@ -11,14 +11,16 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <meta name="theme-color" content="#1668d6"><!-- [code exact à définir] -->
 
-<!-- Aperçu au partage. À la mise en ligne, remplacer les chemins relatifs
-     par l'URL absolue du site et renseigner og:url. -->
+<link rel="canonical" href="https://kops-performance.fr/">
+
+<!-- Aperçu au partage. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="KOPS">
 <meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://kops-performance.fr/">
 <meta property="og:title" content="KOPS — Réduisez durablement vos coûts d'exploitation (OPEX)">
 <meta property="og:description" content="Conseil en performance opérationnelle et plateforme digitale pour transformer vos OPEX en un actif stratégique pilotable. Europe &amp; Afrique de l'Ouest.">
-<meta property="og:image" content="images/kops-partage.png">
+<meta property="og:image" content="https://kops-performance.fr/images/kops-partage.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="KOPS — Réduisez durablement vos coûts d'exploitation (OPEX)">
@@ -182,12 +184,9 @@
             les leviers de réduction et les gains potentiels.
           </p>
 
-          <!-- Envoi par Formspree. Remplacer l'identifiant entre crochets par
-               celui du formulaire créé sur formspree.io ; les réponses arrivent
-               sur l'adresse déclarée dans le compte. -->
-          <form class="formulaire" method="post"
-                action="https://formspree.io/f/[identifiant Formspree à renseigner]">
-            <input type="hidden" name="_subject" value="Demande de diagnostic — site KOPS">
+          <!-- Les demandes sont traitées par contact.php, hébergé sur le même
+               domaine, et adressées à contact@kops-performance.fr. -->
+          <form class="formulaire" method="post" action="contact.php">
             <p class="piege" aria-hidden="true">
               <label for="site-web">Ne pas remplir ce champ</label>
               <input type="text" id="site-web" name="_gotcha" tabindex="-1" autocomplete="off">
@@ -236,7 +235,7 @@
           </div>
           <div>
             <dt>E-mail</dt>
-            <dd><a href="mailto:hypoliteg50@gmail.com">hypoliteg50@gmail.com</a></dd>
+            <dd><a href="mailto:contact@kops-performance.fr">contact@kops-performance.fr</a></dd>
           </div>
         </dl>
       </div>
