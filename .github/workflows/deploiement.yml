@@ -5,6 +5,14 @@ name: Déploiement du site KOPS
 # principale, retirer les dièses des quatre lignes ci-dessous.
 on:
   workflow_dispatch:
+    inputs:
+      publier_htaccess:
+        description: >-
+          Publier aussi le .htaccess du dépôt. Laisser décoché tant que le
+          .htaccess présent sur le serveur n'a pas été inspecté : le transfert
+          l'écraserait.
+        type: boolean
+        default: false
   # push:
   #   branches:
   #     - main
@@ -47,6 +55,15 @@ jobs:
           fi
           echo "Aucun contenu provisoire dans les pages publiques."
 
+      - name: Rappeler le sort réservé au .htaccess
+        run: |
+          if [ "${{ inputs.publier_htaccess }}" = "true" ]; then
+            echo "Le .htaccess du dépôt sera transféré et remplacera celui du serveur."
+          else
+            echo "Le .htaccess du dépôt n'est PAS transféré ; celui du serveur reste en place."
+            echo "Conséquence : ni redirection vers l'adresse canonique, ni en-têtes de sécurité."
+          fi
+
       - name: Transférer vers o2switch en FTPS explicite
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -61,7 +78,11 @@ jobs:
           # de ce dépôt sont laissés en place.
           dangerous-clean-slate: false
           log-level: standard
+          # Le .htaccess n'est transféré que si la case a été cochée au
+          # lancement. Sinon il figure dans les exclusions et le fichier
+          # présent sur le serveur reste intact.
           exclude: |
+            ${{ inputs.publier_htaccess && 'aucun-fichier-de-ce-nom' || '.htaccess' }}
             **/.git*
             **/.git*/**
             **/.github/**
