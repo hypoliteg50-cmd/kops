@@ -5,6 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KOPS — Réduisez durablement vos coûts d'exploitation (OPEX)</title>
 <meta name="description" content="Conseil en performance opérationnelle et plateforme digitale pour structurer, réduire et piloter durablement vos coûts d'exploitation. Europe &amp; Afrique de l'Ouest.">
+
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#1668d6"><!-- [code exact à définir] -->
+
+<link rel="canonical" href="https://kops-performance.fr/">
+
+<!-- Aperçu au partage. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KOPS">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://kops-performance.fr/">
+<meta property="og:title" content="KOPS — Réduisez durablement vos coûts d'exploitation (OPEX)">
+<meta property="og:description" content="Conseil en performance opérationnelle et plateforme digitale pour transformer vos OPEX en un actif stratégique pilotable. Europe &amp; Afrique de l'Ouest.">
+<meta property="og:image" content="https://kops-performance.fr/images/kops-partage.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="KOPS — Réduisez durablement vos coûts d'exploitation (OPEX)">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,11 +34,15 @@
 
 <header class="entete">
   <div class="conteneur entete__interieur">
-    <a class="marque" href="#accueil">KOPS <span class="provisoire">[logo à fournir]</span></a>
+    <a class="marque" href="#accueil">
+      <img src="images/kops-logo.png"
+           alt="KOPS — Optimiser aujourd'hui, performer demain. Conseil, digital, impact."
+           width="640" height="289">
+    </a>
     <nav class="navigation" aria-label="Navigation principale">
       <a href="#services">Services</a>
       <a href="#a-propos">À propos</a>
-      <a href="#preuves">Preuves</a>
+      <a href="#preuves">Performance</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -42,9 +67,11 @@
           d'exploitation : énergie, maintenance, services, fonctionnement des sites.
         </p>
       </div>
-      <div class="visuel-reserve">
-        <span class="provisoire">[Visuel d'accueil à fournir — tableau de bord ou visuel technologique KOPS]</span>
-      </div>
+      <img class="accueil__visuel"
+           src="images/kops-visuel-accueil.png"
+           alt="Un dirigeant consulte un tableau de bord KOPS. L'écran est volontairement flouté : les valeurs qu'il affiche sont une illustration et ne représentent pas des résultats KOPS."
+           width="816" height="384"
+           decoding="async">
     </div>
   </section>
 
@@ -77,8 +104,10 @@
         <p>
           La plateforme digitale de suivi et de pilotage qui soutient ces offres.
         </p>
-        <p class="carte__mention provisoire">
-          [Description détaillée de KOPS 360 à fournir]
+        <p>
+          Elle centralise les données de vos sites, missions, indicateurs, plans
+          d'action et documents pour suivre la performance, piloter les actions et
+          disposer d'une vision claire et partagée de vos opérations.
         </p>
       </div>
     </div>
@@ -99,7 +128,12 @@
             Elle suit une logique en trois temps, pour passer d'optimisations ponctuelles
             à un pilotage continu.
           </p>
-          <p class="provisoire">[Histoire de l'entreprise, dates clés et équipe à fournir]</p>
+          <p>
+            KOPS est née d'une conviction : la performance durable se construit au
+            croisement de l'expertise terrain, de la donnée et du pilotage. Elle
+            s'appuie sur plus de 15 ans d'expérience de son fondateur dans l'énergie,
+            les infrastructures techniques, le management et la direction d'activités.
+          </p>
         </div>
         <ol class="etapes">
           <li>
@@ -123,8 +157,11 @@
   <section class="section section--clair" id="preuves">
     <div class="conteneur">
       <div class="section__intro">
-        <h2>Preuves</h2>
-        <p>Ce que vous obtenez, et sur quoi vous pouvez le mesurer.</p>
+        <h2>Performance mesurable</h2>
+        <p>
+          Chaque mission KOPS s'appuie sur des indicateurs concrets pour mesurer
+          les gains, suivre les résultats et piloter la performance dans la durée.
+        </p>
       </div>
       <ul class="liste-preuves">
         <li>Chiffrage des gains et estimation du retour sur investissement (ROI).</li>
@@ -133,12 +170,6 @@
         <li>Vision multi-sites et multi-périodes.</li>
         <li>Approche orientée résultats mesurables.</li>
       </ul>
-      <div class="encart">
-        <p class="provisoire">[Chiffres de gains réalisés à fournir]</p>
-        <p class="provisoire">[Références clients à fournir]</p>
-        <p class="provisoire">[Témoignages clients à fournir]</p>
-        <p class="provisoire">[Labels et certifications à fournir]</p>
-      </div>
     </div>
   </section>
 
@@ -152,7 +183,48 @@
             Échangeons sur vos coûts d'exploitation : nous identifions ensemble
             les leviers de réduction et les gains potentiels.
           </p>
-          <p class="provisoire">[Formulaire de contact à mettre en place]</p>
+
+          <!-- Les demandes sont traitées par contact.php, hébergé sur le même
+               domaine, et adressées à contact@kops-performance.fr. -->
+          <form class="formulaire" method="post" action="contact.php">
+            <p class="piege" aria-hidden="true">
+              <label for="site-web">Ne pas remplir ce champ</label>
+              <input type="text" id="site-web" name="_gotcha" tabindex="-1" autocomplete="off">
+            </p>
+            <div class="champ">
+              <label for="nom">Nom et prénom</label>
+              <input type="text" id="nom" name="nom" autocomplete="name" required>
+            </div>
+            <div class="champ">
+              <label for="entreprise">Entreprise</label>
+              <input type="text" id="entreprise" name="entreprise" autocomplete="organization">
+            </div>
+            <div class="formulaire__paire">
+              <div class="champ">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+              </div>
+              <div class="champ">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel">
+              </div>
+            </div>
+            <div class="champ">
+              <label for="objet">Objet de la demande</label>
+              <input type="text" id="objet" name="objet">
+            </div>
+            <div class="champ">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button class="bouton-principal" type="submit">Envoyer ma demande</button>
+            <p class="formulaire__mention">
+              Les informations transmises sont utilisées par KOPS pour répondre à
+              votre demande et conservées trois ans au maximum. Vous disposez de
+              droits sur vos données, détaillés dans notre
+              <a href="politique-confidentialite.html">politique de confidentialité</a>.
+            </p>
+          </form>
         </div>
         <dl class="coordonnees">
           <div>
@@ -161,19 +233,15 @@
           </div>
           <div>
             <dt>Adresse</dt>
-            <dd class="provisoire">[Adresse à fournir]</dd>
+            <dd>3 Rue de la Pommeraie<br>78310 Coignières<br>France</dd>
           </div>
           <div>
             <dt>Téléphone</dt>
-            <dd class="provisoire">[Numéro de téléphone à fournir]</dd>
+            <dd><a href="tel:+33766395216">+33 7 66 39 52 16</a></dd>
           </div>
           <div>
             <dt>E-mail</dt>
-            <dd class="provisoire">[Adresse e-mail à fournir]</dd>
-          </div>
-          <div>
-            <dt>Horaires</dt>
-            <dd class="provisoire">[Horaires à fournir]</dd>
+            <dd><a href="mailto:contact@kops-performance.fr">contact@kops-performance.fr</a></dd>
           </div>
         </dl>
       </div>
@@ -191,22 +259,16 @@
         <p>Conseil, digitalisation et pilotage par la donnée.</p>
       </div>
       <div>
-        <p class="pied__titre">Réseaux sociaux</p>
-        <ul>
-          <li class="provisoire">[Liens réseaux sociaux à fournir]</li>
-        </ul>
-      </div>
-      <div>
         <p class="pied__titre">Informations légales</p>
         <ul>
-          <li class="provisoire">[Mentions légales à fournir]</li>
-          <li class="provisoire">[Politique de confidentialité à fournir]</li>
-          <li class="provisoire">[Coordonnées juridiques à fournir]</li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+          <li>KOPS — SASU au capital de 3 000 € — RCS Versailles 102 970 365</li>
         </ul>
       </div>
     </div>
     <div class="pied__bas">
-      <p class="provisoire">[Mention de copyright à fournir]</p>
+      <p>© 2026 KOPS. Tous droits réservés.</p>
     </div>
   </div>
 </footer>

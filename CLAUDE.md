@@ -2,7 +2,7 @@
 
 1. Contenu manquant : texte provisoire entre crochets, jamais inventé. Ne jamais créer un chiffre, une référence client, un témoignage, une coordonnée ou un code couleur absent de `brief.md`.
 2. `brief.md` est la seule source de contenu ; ce qui n'y figure pas n'existe pas pour le site.
-3. Structure imposée : six sections, dans l'ordre — Accueil, Services, À propos, Preuves, Contact, Pied de page.
+3. Structure imposée : six sections, dans l'ordre — Accueil, Services, À propos, Performance mesurable, Contact, Pied de page.
 4. Une seule action principale sur tout le site : « Demander un diagnostic ». Un seul bouton principal.
 5. Vouvoiement systématique ; ton professionnel, clair, orienté résultats.
 6. Aucun jargon non expliqué : tout terme métier est explicité au premier emploi.
