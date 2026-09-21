@@ -428,6 +428,70 @@ a { color: var(--bleu-vif); }
 
 .pied .provisoire { color: rgba(255, 255, 255, 0.62); }
 
+/* Liens du pied de page, sur fond sombre */
+.pied a {
+  color: var(--blanc);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pied a:hover,
+.pied a:focus { text-decoration: none; }
+
+/* Pages légales : mentions légales, politique de confidentialité */
+.page-legale {
+  padding: clamp(40px, 6vw, 72px) 0 clamp(56px, 8vw, 96px);
+}
+
+.page-legale__contenu { max-width: 74ch; }
+
+.page-legale h1 { margin-bottom: 12px; }
+
+.page-legale h2 {
+  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+  margin-top: 44px;
+}
+
+.page-legale h2:first-of-type { margin-top: 36px; }
+
+.page-legale ul {
+  margin: 0 0 16px;
+  padding-left: 22px;
+}
+
+.page-legale li { margin-bottom: 8px; }
+
+.page-legale dl {
+  margin: 0 0 24px;
+  display: grid;
+  gap: 14px;
+}
+
+.page-legale dt {
+  font-weight: 600;
+  color: var(--bleu-gris-fonce);
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.page-legale dd { margin: 4px 0 0; }
+
+.page-legale__date {
+  margin-top: 44px;
+  padding-top: 20px;
+  border-top: 1px solid var(--filet);
+  font-size: 0.95rem;
+  color: var(--texte-attenue);
+}
+
+/* Mention d'information placée sous le formulaire */
+.formulaire__mention {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--texte-attenue);
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .accueil__grille,
