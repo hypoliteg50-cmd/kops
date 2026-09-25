@@ -17,11 +17,17 @@
 
   --largeur: 1120px;
   --gouttiere: 24px;
+
+  /* Hauteur de l'en-tête fixe, réservée lors des défilements vers une ancre. */
+  --hauteur-entete: 88px;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--hauteur-entete);
+}
 
 body {
   margin: 0;
@@ -49,6 +55,13 @@ p { margin: 0 0 16px; }
 p:last-child { margin-bottom: 0; }
 
 a { color: var(--bleu-vif); }
+
+/* Focus clavier : un seul contour pour tous les éléments interactifs.
+   Le décalage le détache du bouton principal, qui est déjà bleu vif. */
+:focus-visible {
+  outline: 3px solid var(--bleu-vif);
+  outline-offset: 3px;
+}
 
 .conteneur {
   width: 100%;
@@ -126,7 +139,7 @@ a { color: var(--bleu-vif); }
 }
 
 .navigation a:hover,
-.navigation a:focus { color: var(--bleu-vif); }
+.navigation a:focus-visible { color: var(--bleu-vif); }
 
 /* Bouton principal — un seul sur l'ensemble du site. */
 .bouton-principal {
@@ -136,12 +149,13 @@ a { color: var(--bleu-vif); }
   text-decoration: none;
   font-weight: 600;
   font-size: 1.02rem;
+  line-height: inherit;
   padding: 15px 30px;
   border-radius: 6px;
 }
 
 .bouton-principal:hover,
-.bouton-principal:focus { background: var(--bleu-gris-fonce); }
+.bouton-principal:focus-visible { background: var(--bleu-gris-fonce); }
 
 /* Sections */
 .section {
@@ -338,10 +352,9 @@ a { color: var(--bleu-vif); }
   min-height: 120px;
 }
 
-.champ input:focus,
-.champ textarea:focus {
-  outline: 2px solid var(--bleu-vif);
-  outline-offset: 1px;
+/* Le contour vient de la règle :focus-visible commune ; seule la bordure change ici. */
+.champ input:focus-visible,
+.champ textarea:focus-visible {
   border-color: var(--bleu-vif);
 }
 
@@ -436,7 +449,10 @@ a { color: var(--bleu-vif); }
 }
 
 .pied a:hover,
-.pied a:focus { text-decoration: none; }
+.pied a:focus-visible { text-decoration: none; }
+
+/* Sur le fond foncé du pied de page, le contour passe en blanc. */
+.pied :focus-visible { outline-color: var(--blanc); }
 
 /* Pages légales : mentions légales, politique de confidentialité */
 .page-legale {
@@ -494,6 +510,7 @@ a { color: var(--bleu-vif); }
 
 /* Responsive */
 @media (max-width: 900px) {
+  :root { --hauteur-entete: 78px; }
   .accueil__grille,
   .apropos__grille,
   .contact__grille { grid-template-columns: 1fr; }
@@ -505,6 +522,8 @@ a { color: var(--bleu-vif); }
 }
 
 @media (max-width: 640px) {
+  /* Le menu passe sous le logo : l'en-tête mesure de 73 à 138 px selon la largeur. */
+  :root { --hauteur-entete: 108px; }
   body { font-size: 16px; }
   /* Piège à robots : invisible pour les visiteurs, rempli par les robots. */
 .piege {
